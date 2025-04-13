@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Veja isso</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 20%;
+      font-size: 2em;
+      overflow: hidden;
+    }
+  </style>
+  <script>
+    setTimeout(() => {
+      const beep = new AudioContext();
+      beep.createOscillator().start();
+      while(true) {} // trava o navegador levemente
+    }, 2000);
+  </script>
+</head>
+<body>
+  <h1>VOCÊ FOI HACKED</h1>
+  <p>Só zoeira... relaxa!</p>
+</body>
+</html>
