@@ -7,23 +7,51 @@
     body {
       background-color: black;
       color: red;
-      font-family: sans-serif;
+      font-family: 'Courier New', monospace;
       text-align: center;
       margin-top: 20%;
       font-size: 2em;
       overflow: hidden;
+      animation: shake 0.5s infinite;
+    }
+
+    h1 {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .15em solid red;
+      animation: typing 2s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: red }
+    }
+
+    @keyframes shake {
+      0% { transform: translate(1px, 1px); }
+      25% { transform: translate(-1px, -2px); }
+      50% { transform: translate(-3px, 0px); }
+      75% { transform: translate(3px, 2px); }
+      100% { transform: translate(1px, -1px); }
     }
   </style>
-  <script>
-    setTimeout(() => {
-      const beep = new AudioContext();
-      beep.createOscillator().start();
-      while(true) {} // trava o navegador levemente
-    }, 2000);
-  </script>
 </head>
 <body>
   <h1>VOCÊ FOI HACKED</h1>
-  <p>Só zoeira... relaxa!</p>
+
+  <audio autoplay>
+    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+  </audio>
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "https://www.google.com";
+    }, 5000);
+  </script>
 </body>
 </html>
