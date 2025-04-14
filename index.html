@@ -1,57 +1,119 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Veja isso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notícias de Última Hora</title>
   <style>
+    /* Estilo inicial para parecer um site normal */
     body {
-      background-color: black;
-      color: red;
-      font-family: 'Courier New', monospace;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
       text-align: center;
-      margin-top: 20%;
-      font-size: 2em;
-      overflow: hidden;
-      animation: shake 0.5s infinite;
     }
 
-    h1 {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: .15em solid red;
-      animation: typing 2s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #007BFF;
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
     }
 
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: red }
+    /* Estilo da mensagem de 'hackeado' */
+    #hacked-content {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      color: red;
+      font-size: 3em;
+      text-align: center;
     }
 
-    @keyframes shake {
-      0% { transform: translate(1px, 1px); }
-      25% { transform: translate(-1px, -2px); }
-      50% { transform: translate(-3px, 0px); }
-      75% { transform: translate(3px, 2px); }
-      100% { transform: translate(1px, -1px); }
+    #hacked-content img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(2px, -2px); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, 2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    #hacked-text {
+      animation: glitch 0.2s infinite;
     }
   </style>
 </head>
 <body>
-  <h1>VOCÊ FOI HACKED</h1>
+  <header>
+    <h1>Notícias de Última Hora</h1>
+  </header>
 
-  <audio autoplay>
-    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
-  </audio>
+  <main>
+    <h2>Descoberta Científica Revolucionária!</h2>
+    <p>Pesquisadores acabam de anunciar uma descoberta que pode mudar o futuro da humanidade. Saiba mais clicando no link abaixo:</p>
+    <img src="https://via.placeholder.com/800x400?text=Descoberta+Incr%C3%ADvel" alt="Imagem da notícia">
+    <p><em>Leia mais para se aprofundar no assunto...</em></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Notícias Incríveis</p>
+  </footer>
+
+  <!-- Conteúdo de "hackeado" -->
+  <div id="hacked-content">
+    <div id="hacked-text">VOCÊ FOI HACKED!</div>
+    <audio id="scream-sound" src="https://www.soundjay.com/button/sounds/beep-07.wav"></audio>
+  </div>
 
   <script>
+    // Simula o site normal por alguns segundos
     setTimeout(() => {
-      window.location.href = "https://www.google.com";
-    }, 5000);
+      // Esconde o conteúdo normal
+      document.body.style.overflow = 'hidden';
+      document.querySelector('header').style.display = 'none';
+      document.querySelector('main').style.display = 'none';
+      document.querySelector('footer').style.display = 'none';
+
+      // Mostra o aviso de "hackeado"
+      const hackedContent = document.getElementById('hacked-content');
+      hackedContent.style.display = 'flex';
+
+      // Toca o som assustador
+      const screamSound = document.getElementById('scream-sound');
+      screamSound.play();
+    }, 5000); // Mostra o susto após 5 segundos
   </script>
 </body>
 </html>
